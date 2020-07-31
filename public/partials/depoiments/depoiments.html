@@ -1,0 +1,83 @@
+<update-title title="Positive Treinamentos - {{post.thisPost.postTitle}}"></update-title>
+
+<ng-include src="'partials/navbar.html'"></ng-include>
+
+<div class="main">
+    <section class="page-section pt-3">
+        <div class="container">
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+                    <li class="breadcrumb-item active"><em> Depoimentos </em></li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    
+    <section class="page-section blog-post pt-3 testemonials" id="depoimentos">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <h2 class="section-title mb-5 text-center">Depoimentos de quem já participou</h2>
+                </div>
+            </div>
+            <div class="row  slick-depo">
+                <div class="col-sm-4 col-md-3" ng-repeat="depo in depoiments">
+                    <a class="thumbnail" href="" ng-click="selectDepo(depo)" data-toggle="modal" data-target="#image-gallery">
+                        <img class="img" ng-src="http://positivetreinamentos.com.br/{{depo.depoimentImg}}" alt="Depoimento de {{depo.depoimentWho}}">
+                        <div class="content">
+                            <div ng-bind-html="depo.depoimentContent"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="modal fade testemonial-modal" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="image-gallery-title">Depoimento de {{selectedDepo.depoimentWho}}</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                    <span class="sr-only">Fechar</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <img id="image-gallery-image" class="img-fluid" ng-src="http://positivetreinamentos.com.br/{{selectedDepo.depoimentImg}}">
+                        </div>
+                        <div class="col-12">
+                            <div id="image-gallery-content" class="">
+                                <div ng-bind-html="selectedDepo.depoimentContent"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-include src="'partials/footer.html'"></ng-include>
+
+<script>
+    $(document).ready(function(){
+        $('.slick-depo').slick({
+            arrows: false,
+            dots: true,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 6000,
+            cssEase: 'ease-in-out',
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            pauseOnHover: false,
+            pauseOnFocus: false,
+        });
+});
+</script>

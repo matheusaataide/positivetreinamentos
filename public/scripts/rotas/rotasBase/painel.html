@@ -1,0 +1,166 @@
+
+<div id="wrapper">
+    <ng-include src="'./partials/sidebarAdmin.html'"></ng-include>
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <simple-navbar>
+                <ol class="breadcrumb m-0 align-items-end">
+                    <li class="breadcrumb-item active"><i class="fas fa-fw fa-tachometer-alt mr-2"></i> Painel</li>
+                </ol>
+            </simple-navbar>
+            <div class="container">
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Acessos ao site</h1>
+                </div>
+                <div class="row">
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2 wow fadeIn">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Hoje</div>
+                                        <div class="h6 mb-1 font-weight-bold text-gray-800">{{ ultimas24h.total }} acessos</div>
+                                        <div class="h6 mb-0 text-gray-600">
+                                            <small>
+                                                <span ng-show="ultimas24h.crescimento > 0">+</span>{{ultimas24h.crescimento}} que ontem 
+                                                <span ng-show="ultimas24h.percentual !== 0">
+                                                (<span ng-show="ultimas24h.percentual > 0">+</span>
+                                                    {{ultimas24h.percentual | number:1 }}%)
+                                                </span>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2 wow fadeIn">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Últimos 7 dias</small></div>
+                                    <div class="h6 mb-1 font-weight-bold text-gray-800">{{ ultimos7dias.total }} acessos</div>
+                                    <div class="h6 mb-0 text-gray-600">
+                                        <small>
+                                            <span ng-show="ultimos7dias.crescimento > 0">+</span>{{ultimos7dias.crescimento}} que ontem <span ng-show="ultimos7dias.percentual !== 0">
+                                                <span ng-show="ultimos7dias.percentual > 0">+</span>
+                                                {{ultimos7dias.percentual}}%
+                                            </span>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-info shadow h-100 py-2 wow fadeIn">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Últimos 30 dias</div>
+                                    <div class="h6 mb-1 font-weight-bold text-gray-800">{{ ultimos30dias.total }} acessos</div>
+                                    <div class="h6 mb-0 text-gray-600">
+                                        <small>
+                                            <span ng-show="ultimos30dias.crescimento > 0">+</span>{{ultimos30dias.crescimento}} que ontem <span ng-show="ultimos30dias.percentual !== 0">
+                                                <span ng-show="ultimos30dias.percentual > 0">+</span>
+                                                {{ultimos30dias.percentual}}%
+                                            </span>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-warning shadow h-100 py-2 wow fadeIn">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Desde o início</div>
+                                        <div class="h6 mb-1 font-weight-bold text-gray-800">{{ acessos.total }} acessos</div>
+                                        <div class="h6 mb-0 text-gray-800"><small>Contando desde 21 abr 2020</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-5 col-lg-5">
+                        <div class="card shadow mb-4 wow fadeInRight">
+                            <!-- Card Header - Dropdown -->
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">Acessos por tipo de página</h6>
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="pt-4 pb-2">
+                                    <canvas id="doughnut" class="chart chart-doughnut"
+                                        chart-data="porSecao.data" chart-labels="porSecao.labels" chart-colors="colors">
+                                    </canvas>
+                                </div>
+                                <div class="mt-4 text-center small">
+                                    <span class="mr-2"> 
+                                        <i class="fas fa-circle text-primary"></i> {{porSecao.labels[0]}}
+                                    </span>
+                                    <span class="mr-2">
+                                        <i class="fas fa-circle text-success"></i> {{porSecao.labels[1]}}
+                                    </span>
+                                    <span class="mr-2">
+                                        <i class="fas fa-circle text-warning"></i> {{porSecao.labels[2]}}
+                                    </span>
+                                    <span class="mr-2">
+                                        <i class="fas fa-circle text-info"></i> {{porSecao.labels[3]}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-7 col-lg-7">
+                        <div class="card shadow mb-4 ">
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Páginas mais acessadas</h6>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-hover table-condensed" ng-show="top10paginas.length > 0">
+                                <thead>
+                                    <tr>
+                                        <td><b>Página</b></td>
+                                        <td class="text-center"><b>Acessos</b></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="align-items-center justify-content-between" ng-repeat="pagina in top10paginas | orderBy:pagina.total:true">
+                                        <td class="text-left text-weight-600">
+                                            <b>{{ ::pagina.caminho }} <small ng-show="pagina.caminho === '/'">(Página inicial)</small></b>
+                                        </td>
+                                        <td>
+                                            {{ ::pagina.total }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <footer class="sticky-footer bg-white" style="flex-shrink: none;">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                <span>Copyright © Positive Treinamentos 2020</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>

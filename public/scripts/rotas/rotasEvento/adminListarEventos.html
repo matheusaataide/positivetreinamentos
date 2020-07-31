@@ -1,0 +1,125 @@
+<div id="wrapper">
+    <ng-include src="'./partials/sidebarAdmin.html'"></ng-include>
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <simple-navbar>
+                <ol class="breadcrumb m-0 align-items-end">
+                    <li class="breadcrumb-item"><a class="mt-auto" href="/admin/"><i class="fas fa-fw fa-tachometer-alt"></i></a></li>
+                    <li class="breadcrumb-item active"><span> Agenda </span></li>
+                </ol>
+            </simple-navbar>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="card shadow mb-4">
+                            <div class="card-body">
+                                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                    <h1 class="h3 mb-0 text-gray-800">Todos os eventos <small>({{ eventos.length }})</small></h1>
+                                    <a href="/admin/agenda/novo" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm btn-icon-split">
+                                        <span class="icon text-white-50"><i class="fas fa-plus"></i></span>
+                                        <span class="text">Novo</span>
+                                    </a>
+                                </div>
+                                <hr>
+                                <table ng-hide="eventos.length == 0" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th><a href="" ng-click="ordenarPor('dataEvento')">Data do evento</a></th>
+                                            <th><a href="" ng-click="ordenarPor('nome')">Evento</a></th>
+                                            <th>Status</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="align-items-center justify-content-between" ng-repeat="evento in eventos | filter:criterioBusca | orderBy:evento.dataEvento:true track by evento.id">
+                                            <td>
+                                                <span>{{ evento.dataEvento | date: "dd MMM" }}</span>
+                                            </td>
+                                            <td style="max-width: 350px;">
+                                                <a href="/admin/agenda/editar/{{ ::postagem.id }}">
+                                                    {{ ::evento.nome }}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <span ng-class="evento.status ? 'text-success' : 'text-danger'">
+                                                    {{evento.status ? 'Disponível' : 'Oculto'}}
+                                                </span>
+                                            </td>
+                                            <td class="options justify-content-end">
+                                                <a href="/admin/agenda/editar/{{::evento.id}}" role="button" alt="Editar" class="btn btn-sm btn-warning shadow-sm mr-2"
+                                                     data-toggle="tooltip" data-placement="bottom" title="Editar">
+                                                    <i class="fas fa-edit fa-sm fa-fw text-grey-400"></i>
+                                                </a>
+
+                                                <button type="button" role="button"ng-click="mudarVisibilidade(evento)" ng-show="evento.status"  alt="Ocultar" class="btn btn-sm btn-danger shadow-sm mr-2" 
+                                                data-toggle="tooltip" data-placement="bottom" title="Ocultar">
+                                                    <i class="fas fa-eye-slash fa-sm  text-grey-400"></i>
+                                                </button>
+
+                                                <a href="/agenda/{{ ::evento.id }}/{{::evento.nome | slugify}}" ng-show="evento.status" role="button" alt="Ver evento" class="btn btn-sm btn-primary shadow-sm mr-2" data-toggle="tooltip" data-placement="top" title="Visualizar no site">
+                                                    <i class="fas fa-external-link-alt fa-sm fa-fw text-grey-400"></i> 
+                                                </a>
+                                                
+                                                <a href="" ng-click="mudarVisibilidade(evento)" ng-hide="evento.status" role="button" alt="Disponibilizar" class="btn btn-sm btn-success shadow-sm mr-2" 
+                                                data-toggle="tooltip" data-placement="bottom" title="Disponibilizar">
+                                                    <i class="fas fa-eye fa-sm  text-grey-400"></i>
+                                                </a>
+                                                <a href="" ng-click="excluirEvento(evento)" ng-hide="evento.status" role="button" alt="Apagar evento" class="btn btn-sm btn-danger shadow-sm mr-2" data-toggle="tooltip" data-placement="top" title="Excluir">
+                                                    <i class="fas fa-trash fa-sm fa-fw text-grey-400"></i> 
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <span ng-show="eventos.length == 0">
+                                    Não há eventos no seu sistema!
+                                    <a href="/admin/agenda/novo">Crie um evento agora</a>.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card shadow mb-4">
+                            <div class="card-body">
+                                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                    <h6 class="h6 mb-0 text-gray-800">Quando não houver eventos disponíveis, mostrar...</h6>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group justify-content-center">
+                                            <label for="imagem" class="upload-thumbnail" ng-show="previewImage != null">
+                                                <img ng-src="{{ previewImage }}" ng-show="previewImage != null" alt="Imagem a exibir" class="img-fluid"/>            
+                                            </label>
+                                            <div class="form-group inputFile">
+                                                <label for="imagem" class="btn btn-sm btn-primary btn-block shadow-sm">
+                                                    <i class="fas fa-upload mr-2"></i>
+                                                    {{ previewImage ? 'Alterar' : 'Escolher' }} imagem
+                                                </label>
+                                                <input type="file" file-model="file" class="form-control" id="imagem" onchange="angular.element(this).scope().selectFile(event)"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-right">
+                                        <a href="" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm" ng-click="salvarAnuncio()">
+                                            <i class="fas fa-check fa-sm text-white-50 mr-2"></i> Salvar 
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="sticky-footer bg-white" style="flex-shrink: none;">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                <span>Copyright © Positive Treinamentos 2020</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>

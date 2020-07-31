@@ -1,0 +1,17 @@
+websites (website_id*, website_nicename)
+website_options (option_id*, option_property, option_value, website_id)
+websites_meta (website_meta_id*, website_id, website_meta_key, website_meta_value)
+users (user_id*, user_email, user_nicename, user_pass, user_level_access, user_registered, user_activaction_key, user_status, user_receive_email)
+users_websites(user_id*, website_id*)
+    user_id references users
+    website_id references websites
+posts (post_id*, website_id, post_author, post_type, post_datetime, post_content, post_title, post_excerpt, post_status, post_modified)
+    website_id references websites
+    post_author references users
+posts_meta (post_meta_id*, post_id, post_meta_key, post_meta_value)
+attachments (attach_id*, attach_post_id, attach_type, attach_mimetype, attach_uri, attach_file_size)
+    attach_post_id references posts
+    
+comments (comment_id*, comment_post_id, comment_content, comment_author, comment_datetime, comment_parent, comment_approved)
+    comment_post_id references posts
+links (link_id*, website_id, )

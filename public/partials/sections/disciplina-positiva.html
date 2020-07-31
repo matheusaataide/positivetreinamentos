@@ -1,0 +1,50 @@
+
+<update-title title="Positive Treinamentos - Disciplina Positiva"></update-title>
+
+<ng-include src="'./partials/navbar.html'"></ng-include>
+
+<div class="main">
+    <section class="page-section pt-3">
+        <div class="container">
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+                    <li class="breadcrumb-item active"><em>Disciplina Positiva</em></li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    
+    <section class="page-section blog-post pt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-8 offset-md-2">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card shadow" style="border-radius: 10px;">
+                                <div class="card-body py-5">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-12 mb-5 text-center">
+                                                <span class="section-subtitle d-block">Mas, então...</span>
+                                                <h2 class="section-title">O que é Disciplina Positiva?</h2>
+                                                <img src="./img/fotos/familia-positive.jpg" alt="Família Positive" class="img-fluid mb-5">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 text-justify">
+                                                <div ng-bind-html="disciplina.sectionContent"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>	
+                        </div>
+                    </div>	
+                </div>	
+            </div>
+        </div>
+    </section>
+</div>
+
+<ng-include src="'./partials/footer.html'"></ng-include>

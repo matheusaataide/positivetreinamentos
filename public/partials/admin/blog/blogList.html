@@ -1,0 +1,134 @@
+<div id="wrapper">
+    <ng-include src="'./partials/admin/sidebar.html'"></ng-include>
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <simple-navbar>
+                <ol class="breadcrumb m-0 align-items-end">
+                    <li class="breadcrumb-item"><a class="mt-auto" href="/admin"><i class="fas fa-fw fa-tachometer-alt"></i></a></li>
+                    <li class="breadcrumb-item active"><span>Blog</span></li>
+                </ol>
+            </simple-navbar>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div ng-if="notification" role="alert" class="alert alert-dismissible shadow-sm alert-warning">
+                            <div class="alert-text">
+                                <p ng-bind="notification.text"></p>
+                            </div>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="card shadow mb-4">
+                            <div class="card-body">
+                                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                    <h1 class="h3 mb-0 text-gray-800">Todas as postagens <small>({{ posts.length }})</small></h1>
+                                    <a href="/admin/blog/postar" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm btn-icon-split">
+                                        <span class="icon text-white-50"><i class="fas fa-plus"></i></span>
+                                        <span class="text">Postar</span>
+                                    </a>
+                                </div>
+                                <hr>
+                                <table ng-hide="posts.length == 0" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Data</th>
+                                            <th>Postagem</th>
+                                            <th>Status</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="align-items-center justify-content-between" ng-repeat="post in posts | orderBy:post.createdAt:false track by post.postId" ng-click="viewPost(post)">
+                                            <td>
+                                                {{ ::post.createdAt | date:"dd MMM yy" }}
+                                            </td>
+                                            <td style="max-width: 460px;">
+                                                <a href="/admin/blog/editar/{{::post.postId}}">{{::post.postTitle}}</a>
+                                            </td>
+                                            <td>
+                                                <span ng-class="post.postStatus ? 'text-success' : 'text-danger'">{{post.postStatus ? 'Disponível' : 'Oculta'}}</span>
+                                            </td>
+                                            <td class="options justify-content-end">
+                                                <a href="/admin/blog/editar/{{::post.postId}}" role="button" alt="Editar" class="btn btn-sm btn-warning shadow-sm mr-2" 
+                                                    data-toggle="tooltip" data-placement="bottom" title="Editar" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                                                    <i class="fas fa-edit fa-sm fa-fw text-grey-400"></i>
+                                                </a>
+                                                <a href="" ng-click="selectPost(post)" role="button" alt="Excluir" class="btn btn-sm btn-danger shadow-sm mr-2" 
+                                                data-toggle="modal" data-target="#deleteModal" data-toggle="tooltip" data-placement="bottom" title="Excluir">
+                                                    <i class="fas fa-trash fa-sm fa-fw text-grey-400"></i>
+                                                </a>
+                                                <a href="/blog/{{::post.postId}}/{{::post.postTitle | slugify}}"  ng-show="post.postStatus" role="button" alt="Ver postagem" 
+                                                class="btn btn-sm btn-primary shadow-sm mr-2" data-toggle="tooltip" data-placement="top" title="Visualizar no site">
+                                                    <i class="fas fa-external-link-alt fa-sm fa-fw text-grey-400"></i> 
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <span ng-show="posts.length == 0"> Não há postagens no seu blog! <a href="/admin/blog/postar">Escreva e poste agora</a>. </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="sticky-footer bg-white" style="flex-shrink: none;">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                <span>Copyright © Positive Treinamentos 2020</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Deletar esta postagem?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">    
+                <div class="row">
+                    <p>Tem certeza que deseja deletar permanentemente esta postagem?</p>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <img ng-src="http://www.positivetreinamentos.com.br/{{selectedPost.postImg}}" alt="{{selectedPost.postTitle}}" style="max-width: 100%;">
+                    </div>
+                    <div class="col-10">
+                        <p><b>Título:</b> {{selectedPost.postTitle}}</p>
+                        <p><b>Postada em:</b> {{selectedPost.createdAt | date:"dd MMM yy hh:mm"}}</p>
+                        <p><b>Acessada:</b> {{selectedPost.postViews}} vezes</p>
+                    </div>
+                </div>
+                <div class="row pt-5">
+                    <p ng-show="selectedPost.postStatus">Você não prefere apenas ocultar esta postagem? Assim, ela não será mais listada no blog do site, mas você e os outros administradores ainda terão acesso a ela, e poderão ativá-la depois.</p>
+                    <p ng-hide="selectedPost.postStatus">Esta postagem já não está sendo listada no blog, portanto só você e os outros administradores podem vê-la. Ainda assim deseja excluí-la permanentemente?</p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+            <button class="btn btn-link text-danger" type="button" data-dismiss="modal" ng-click="deletePost(selectedPost)">
+                <i class="fas fa-trash mr-2"></i> Deletar permanentemente
+            </button>
+            <div>
+                <button type="button" class="btn btn-secondary shadow-sm" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary shadow-sm" ng-show="selectedPost.postStatus" data-dismiss="modal" ng-click="hidePost(selectedPost)"><i class="fas fa-eye-slash"></i> Ocultar</a>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>

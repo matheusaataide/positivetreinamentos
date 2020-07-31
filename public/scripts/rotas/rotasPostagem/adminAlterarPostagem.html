@@ -1,0 +1,108 @@
+<div id="wrapper">
+    <ng-include src="'./partials/sidebarAdmin.html'"></ng-include>
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <simple-navbar>
+                <ol class="breadcrumb m-0 align-items-end">
+                    <li class="breadcrumb-item"><a class="mt-auto" href="/admin/"><i class="fas fa-fw fa-tachometer-alt"></i></a></li>
+                    <li class="breadcrumb-item"><a href="/admin/blog">Blog</a></li>
+                    <li class="breadcrumb-item active"><span> {{ post.postId ? 'Editar' : 'Nova' }} postagem </span></li>
+                </ol>
+            </simple-navbar>
+            <div class="container">
+                <form name="blogForm">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="card shadow-sm mb-4 py-3">
+                                <div class="card-body">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="titulo">Título da postagem</label>
+                                                    <input type="text" id="titulo" name="titulo" ng-model="postagem.titulo" class="form-control postagem-titulo" placeholder="Título desta postagem">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="conteudo">Conteúdo</label>
+                                                    <div id="conteudo" simditor ng-model="postagem.conteudo" placeholder="Digite seu conteúdo..."></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 text-right">
+                                                <a href="/admin/blog" class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm mr-2">
+                                                    <i class="fas fa-times fa-sm text-white-50 mr-2"></i> Cancelar 
+                                                </a>
+                                                <a href="" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm" ng-click="salvarPostagem(postagem)">
+                                                    <i class="fas fa-check fa-sm text-white-50 mr-2"></i> Salvar 
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card shadow-sm mb-4 py-3">
+                                <div class="card-body">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <p class="info" ng-show="postagem.id">
+                                                    <label>Postada em: </label>
+                                                    <span>{{ postagem.createdAt | date:'dd MMM yy'}}</span>
+                                                    <hr>
+                                                </p>
+                                                <div class="form-group" style="margin-bottom: 0;">
+                                                    <label class="switch">
+                                                        <input type="checkbox" ng-model="postagem.status" class="primary">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                    <label class="ml-3" style="position: absolute;display: inline-grid;text-align: left;">Mostrar no blog</label>
+
+                                                    <a href="/blog/{{ ::postagem.id }}/{{::postagem.titulo | slugify}}" ng-show="postagem.id" ng-class="{'disabled': !postagem.status}" class="btn btn-sm btn-primary btn-block mt-2">
+                                                        <i class="fas fa-external-link-alt fa-sm fa-fw text-grey-400 mr-2"></i> Visualizar no site
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shadow-sm mb-4 py-3">
+                                <div class="card-body">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group justify-content-center" style="margin-bottom: 0;">
+                                                    <label>Imagem de exibição</label>
+                                                    <label for="imagem" class="upload-thumbnail mb-4" ng-show="previewImage != null">
+                                                        <img ng-src="{{ previewImage }}" ng-show="previewImage != null" alt="{{ postagem.titulo }}" class="img-fluid"/>            
+                                                    </label>
+                                                    <div class="form-group inputFile" style="margin-bottom: 0;">
+                                                        <label for="imagem" class="btn btn-sm btn-primary btn-block shadow-sm">
+                                                            <i class="fas fa-upload mr-2"></i>
+                                                            {{ previewImage ? 'Alterar' : 'Escolher' }} imagem
+                                                        </label>
+                                                        <input type="file" file-model="file" class="form-control" id="imagem" onchange="angular.element(this).scope().selectFile(event)"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <footer class="sticky-footer bg-white" style="flex-shrink: none;">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                <span>Copyright © Positive Treinamentos 2020</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>

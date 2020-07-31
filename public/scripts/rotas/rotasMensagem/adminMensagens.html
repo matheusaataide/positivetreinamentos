@@ -1,0 +1,74 @@
+<div id="wrapper">
+    <ng-include src="'./partials/sidebarAdmin.html'"></ng-include>
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <simple-navbar>
+                <ol class="breadcrumb m-0 align-items-end">
+                    <li class="breadcrumb-item"><a class="mt-auto" href="/admin/"><i class="fas fa-fw fa-tachometer-alt"></i></a></li>
+                    <li class="breadcrumb-item active"><span> Mensagens </span></li>
+                </ol>
+            </simple-navbar>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="card shadow mb-4">
+                            <div class="card-body">
+                                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                    <h1 class="h3 mb-0 text-gray-800">Todas as mensagens <small>({{ mensagens.rows.length }})</small></h1>
+                                </div>
+                                <hr>
+                                <table ng-hide="mensagens.rows.length == 0" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Assunto</th>
+                                            <th>Enviado por</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="align-items-center justify-content-between" ng-repeat="mensagem in mensagens.rows | orderBy:mensagem.nome" ng-click="selecionarMensagem(mensagem)">
+                                            <td ng-class="{'font-weight-bold':!msg.visualizada}">
+                                                {{ mensagem.assunto }}
+                                            </td>
+                                            <td>
+                                                <span class="">{{mensagem.remetente}}</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="card shadow mb-4" ng-show="mensagemSelecionada">
+                            <div class="card-body">
+                                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                    <h4 class="h4 mb-0 text-gray-800 text-primary">{{mensagemSelecionada.assunto}}</h4>
+                                    <h6 class="h6 mb-0 text-gray-800">Enviado por {{mensagemSelecionada.remetente}} (<i>{{mensagemSelecionada.emailRemetente}}</i>)</h6>
+
+                                </div>
+                                <hr>    
+                                <div class="row">
+                                    <div class="col-12">
+                                        {{mensagemSelecionada.conteudo}}
+                                    </div>
+                                </div>
+                                <hr> 
+                                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                    <h6 class="h6 mb-0 text-gray-800">Enviado às {{mensagemSelecionada.createdAt | date:"dd MMM yyyy hh:mm"}}</h6>
+                                    <a href="" ng-click="" class="btn btn-danger btn-sm shadow-sm"><i class="fas fa-trash mr-2"></i> Excluir</a>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="sticky-footer bg-white" style="flex-shrink: none;">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                <span>Copyright © Positive Treinamentos 2020</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+
+
+<update-title title="Positive Treinamentos - {{event.eventTitle}}"></update-title>
+
+<ng-include src="'partials/navbar.html'"></ng-include>
+
+<div class="main">
+    <section class="page-section pt-3">
+        <div class="container">
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="/index.html"><i class="fas fa-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="/agenda">Agenda</a></li>
+                    <li class="breadcrumb-item active"><em>{{event.eventTitle}}</em></li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    
+    <section class="page-section blog-post pt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-8 offset-md-2">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card shadow" style="border-radius: 10px;">
+                                <div class="card-body py-5">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-8 offset-2">
+                                                <img ng-src="http://positivetreinamentos.com.br/{{event.eventImg}}" alt="{{event.thisEvent.eventTitle}}" class="img-fluid mb-5" style="border-radius: 10px !important;">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 mb-5 text-center">
+                                                <h2 class="text-primary">{{event.eventTitle}}</h2>
+                                                <hr>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 text-justify">
+                                                <div ng-bind-html="event.thisEvent.eventContent"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row" >
+                                            <div class="col-sm-12">
+                                                <h5 class="text-center text-primary">Gostaria de mais informações? </h5>
+                                                <a href="https://api.whatsapp.com/send?phone=5582999395433&text=Olá!%20Vi%20um%20evento%20no%20seu%20site,%20e%20queria%20saber%20mais%20informações%20sobre%20ele!%20😁💙" target="_blank" rel="noopener" class="contato my-5 btn btn-success btn-md btn-block align-self-end">
+                                                    <i class="fab fa-whatsapp"></i><span>Quer saber um pouco mais?</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>	
+                        </div>
+                    </div>	
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<ng-include src="'partials/footer.html'"></ng-include>

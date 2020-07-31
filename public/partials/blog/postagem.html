@@ -1,0 +1,141 @@
+
+<update-title title="Positive Treinamentos - {{post.thisPost.postTitle}}"></update-title>
+
+<ng-include src="'partials/navbar.html'"></ng-include>
+
+<div class="main">
+    <section class="page-section pt-3">
+        <div class="container">
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="/blog">Blog</a></li>
+                    <li class="breadcrumb-item active"><em>{{ post.thisPost.postTitle }}</em></li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    
+    <section class="page-section blog-post pt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-8">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card shadow" style="border-radius: 10px;">
+                                <div class="card-body py-5">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-8 offset-2">
+                                                <img ng-src="http://positivetreinamentos.com.br/{{post.thisPost.postImg}}" alt="{{post.postTitle}}" class="img-fluid mb-5" style="border-radius: 10px !important;">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 mb-5 text-center">
+                                                <h2 class="text-primary">{{post.thisPost.postTitle}}</h2>
+                                                <hr>
+                                                <div class="info">
+                                                    <div class="mx-2">
+                                                        Positive Treinamentos  ·  {{post.thisPost.createdAt | date:"dd MMM yyyy"}}  ·  {{post.thisPost.postViews}} visualizações
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 text-justify">
+                                                <div ng-bind-html="post.thisPost.postContent"></div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="row" >
+                                            <div class="col-sm-12">
+                                                <h5 class="text-center text-primary" style="line-height: 1.5;">Gostou deste conteúdo?<br>Inscreva seu e-mail abaixo e te enviaremos artigos semelhantes a este!</h5>
+                                                <div class="row pt-2" ng-hide="subscribed">    
+                                                    <div class="col-8">
+                                                        <input type="email" class="form-control" ng-model="lead.newsletterEmail" placeholder="Digite seu endereço de e-mail">
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <button class="btn btn-success" ng-click="subscribe(lead)" type="button">Inscrever-me</button>
+                                                    </div>
+                                                </div>
+                                                <div class="row pt-2" ng-show="subscribed">
+                                                    <div class="col-12">
+                                                        <span class="text-success">Adicionado à nossa lista!</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>	
+                        </div>
+                    </div>	
+                    
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <a href="/blog/{{post.nextPost.postId}}/{{ post.nextPost.postTitle | slugify }}" class="card bg-white p-2 my-4 shadow-sm" 
+                                ng-hide="post.nextPost === null" style="min-height: 92px;">
+                                <div class="container" style="padding-left: 0;padding-right: 0;bottom: 10px;position: absolute;">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <img ng-src="http://positivetreinamentos.com.br/{{post.nextPost.postImg}}" class="img-fluid shadow-sm" 
+                                                style="max-width: 95px;position: absolute;bottom: 0;left: 15px;">
+                                        </div>
+                                        <div class="col-7">
+                                            <small class="text-gray-600 mt-1"><strong>Próxima</strong></small>
+                                            <h6>
+                                                {{post.nextPost.postTitle}}
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="/blog/{{ post.prevPost.postId }}/{{ post.prevPost.postTitle | slugify }}" class="card bg-white p-2 my-4 shadow-sm" 
+                                ng-hide="post.prevPost === null" style="min-height: 92px;">
+                                <div class="container" style="padding-left: 0; padding-right: 0; bottom: 10px; position: absolute;">
+                                    <div class="row">
+                                        <div class="col-8 pl-4 text-right">
+                                            <small class="text-gray-600 mt-1"><strong>Anterior</strong></small>
+                                            <h6>
+                                                {{post.prevPost.postTitle}}
+                                            </h6>
+                                        </div>
+                                        <div class="col-4">
+                                            <img ng-src="http://positivetreinamentos.com.br/{{post.prevPost.postImg}}" class="img-fluid shadow-sm" 
+                                                style="max-width: 95px;position: absolute;bottom: 0;right: 22px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="news p-3">
+                        <h2 class="section-title pb-3">Leia também</h2>
+                        <a href="/blog/{{recommendation.postId}}/{{recommendation.postTitle | slugify}}" class="card bg-white p-2 my-4 shadow-sm" style="min-height: 92px;" ng-repeat="recommendation in post.recommendedPosts">
+                            <div class="container" style="padding-left: 0;padding-right: 0;bottom: 10px;position: absolute;">
+                                <div class="row">
+                                    <div class="col-4"><img ng-src="http://positivetreinamentos.com.br/{{recommendation.postImg}}" class="img-fluid shadow-sm" style="max-width: 95px;position: absolute;bottom: 0;left: 15px;"></div>
+                                    <div class="col-8">
+                                        <h6>
+                                            {{recommendation.postTitle}}<br>
+                                            <small class="text-gray-600 mt-1">{{recommendation.createdAt | date:"dd MMM yyyy"}}</small>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>  
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <img src="./img/workshops/aviso.jpg" alt="" class="img-fluid">
+                    </div>
+                </div>	
+            </div>
+        </div>
+    </section>
+</div>
+
+<ng-include src="'partials/footer.html'"></ng-include>

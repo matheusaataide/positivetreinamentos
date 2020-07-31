@@ -1,0 +1,123 @@
+
+<update-title title="Positive Treinamentos - {{estaPostagem.titulo}}"></update-title>
+
+<div ng-include="'partials/navbar.html'"></div>
+
+<div class="main">
+    <section class="page-section pt-3">
+        <div class="container">
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="/blog">Blog</a></li>
+                    <li class="breadcrumb-item active"><em>{{ estaPostagem.titulo }}</em></li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    
+    <section class="page-section blog-post pt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-8">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card shadow" style="border-radius: 10px;">
+                                <div class="card-body py-5">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-8 offset-2">
+                                                <img ng-src="{{estaPostagem.imagem}}" alt="{{post.titulo}}" class="img-fluid mb-5" style="border-radius: 10px !important;">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 mb-5 text-center">
+                                                <h2 class="text-primary">{{estaPostagem.titulo}}</h2>
+                                                <hr>
+                                                <div class="info">
+                                                    <div class="mx-2">
+                                                        Positive Treinamentos  ·  {{estaPostagem.createdAt | date:"dd MMM yyyy"}}  ·  {{ getAcessos(estaPostagem.id) }} visualizações
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 text-justify">
+                                                <div ng-bind-html="estaPostagem.conteudo"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>	
+                        </div>
+                    </div>	
+                    
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <a href="/blog/{{proximaPostagem.id}}/{{ proximaPostagem.titulo | slugify }}" class="card bg-white p-2 my-4 shadow-sm" 
+                                ng-hide="proximaPostagem === null" style="min-height: 92px;">
+                                <div class="container" style="padding-left: 0;padding-right: 0;bottom: 10px;position: absolute;">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <img ng-src="{{proximaPostagem.imagem}}" class="img-fluid shadow-sm" 
+                                                style="max-width: 95px;position: absolute;bottom: 0;left: 15px;">
+                                        </div>
+                                        <div class="col-7">
+                                            <small class="text-gray-600 mt-1"><strong>Próxima</strong></small>
+                                            <h6>
+                                                {{proximaPostagem.titulo}}
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="/blog/{{ postagemAnterior.id }}/{{ postagemAnterior.titulo | slugify }}" class="card bg-white p-2 my-4 shadow-sm" 
+                                ng-hide="postagemAnterior === null" style="min-height: 92px;">
+                                <div class="container" style="padding-left: 0; padding-right: 0; bottom: 10px; position: absolute;">
+                                    <div class="row">
+                                        <div class="col-8 pl-4 text-right">
+                                            <small class="text-gray-600 mt-1"><strong>Anterior</strong></small>
+                                            <h6>
+                                                {{postagemAnterior.titulo}}
+                                            </h6>
+                                        </div>
+                                        <div class="col-4">
+                                            <img ng-src="{{ postagemAnterior.imagem }}" class="img-fluid shadow-sm" 
+                                                style="max-width: 95px;position: absolute;bottom: 0;right: 22px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="news p-3">
+                        <h2 class="section-title pb-3">Leia também</h2>
+                        <a href="/blog/{{recomendado.id}}/{{recomendado.titulo | slugify}}" class="card bg-white p-2 my-4 shadow-sm" style="min-height: 92px;" ng-repeat="recomendado in recomendados">
+                            <div class="container" style="padding-left: 0;padding-right: 0;bottom: 10px;position: absolute;">
+                                <div class="row">
+                                    <div class="col-4"><img ng-src="{{recomendado.imagem}}" class="img-fluid shadow-sm" style="max-width: 95px;position: absolute;bottom: 0;left: 15px;"></div>
+                                    <div class="col-8">
+                                        <h6>
+                                            {{recomendado.titulo}}<br>
+                                            <small class="text-gray-600 mt-1">{{recomendado.createdAt | date:"dd MMM yyyy"}}</small>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>  
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <img src="./img/workshops/aviso.jpg" alt="" class="img-fluid">
+                    </div>
+                </div>	
+            </div>
+        </div>
+    </section>
+</div>
+
+<div ng-include="'partials/footer.html'"></div>

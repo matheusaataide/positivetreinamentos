@@ -1,0 +1,50 @@
+<update-title title="Positive Treinamentos - Agenda"></update-title>
+
+<ng-include src="'partials/navbar.html'"></ng-include>
+
+<div class="main">
+    <section class="mt-2"></section>
+    <section class="page-section eventos py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 class="section-title">Próximos eventos</h2>
+            </div>
+        </div>
+
+        <div class="row" ng-show="eventos.length > 0">
+            <div class="col-md-4" ng-repeat="evento in eventos | orderBy:evento.dataEvento:true"  ng-show="evento.status">
+                <div class="card mb-4">
+                    <img class="card-img shadow wow fadeIn" ng-src="{{evento.imagem}}" alt="{{evento.nome}}">
+                    <div class="card-body shadow">
+                        <div class="card-title">
+                            <h3>{{evento.nome}}</h3>
+                        </div>
+                        <div class="data">
+                            <span class="dia">{{evento.dataEvento | date:'dd'}}</span>
+                            <span class="mes">{{evento.dataEvento | date:'MMM'}}</span>
+                        </div>
+                        <div class="descricao">
+                            <div ng-bind-html="evento.descricao"></div>
+                            
+                            
+                        </div>
+                        <div class="detalhe">
+                            <a href="/agenda/{{evento.id}}/{{evento.nome | slugify}}" class="btn btn-primary btn-md btn-block">
+                                <span>ler mais</span><i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-hide="eventos.length > 0">
+            <div class="col-6 offset-3">
+                <img ng-src="{{anuncio.conteudo}}" alt="Positive Treinamentos informa" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    </section>
+</div>
+
+<ng-include src="'partials/footer.html'"></ng-include>
