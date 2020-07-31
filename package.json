@@ -4,6 +4,7 @@
   "description": "Site para Positive Treinamentos",
   "main": "index.js",
   "scripts": {
+    "prestart": "npm i",
     "start": "node index",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
