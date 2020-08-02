@@ -59,25 +59,22 @@
                         <a class="nav-link" href="/">Início</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/quem-somos">Quem somos</a>
+                        <a class="nav-link" href="#quem-somos">Quem somos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/transformacoes-positive">Transformações Positive</a>
+                        <a class="nav-link" href="#transformacoes-positive">Transformações Positive</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/agenda">Agenda</a>
+                        <a class="nav-link" href="#agenda">Agenda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/disciplina-positiva">Disciplina Positiva<span class="sr-only">(atual)</span></a>
+                        <a class="nav-link" href="#depoimentos">Depoimentos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/depoimentos">Depoimentos</a>
+                        <a class="nav-link" href="#blog">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/blog">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contato">Contato</a>
+                        <a class="nav-link" href="#contato">Contato</a>
                     </li>
                 </ul>
                 <span class="navbar-text">
@@ -256,7 +253,7 @@
 			</div>
 		</section>
 
-		<section class="page-section eventos">
+		<section class="page-section eventos" id="agenda">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center">
@@ -483,14 +480,14 @@
         </div>
 
 
-        <section class="page-section testemonials" id="testemonials">
+        <section class="page-section testemonials" id="depoimentos">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
 						<h2 class="section-title">Depoimentos</h2>
 					</div>
                 </div>
-                <div class="row">
+                <div class="row slick-depo">
                     <div class="col-sm-4 col-md-3">
                         <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-target="#image-gallery">
                             <img class="img" src="./img/depoimentos/DEPOIMENTOS Aline.jpg"alt="Depoimento de Aline">
@@ -670,7 +667,7 @@
             </div>
         </section>
 
-        <section class="page-section contato">
+        <section class="page-section contato" id="contato">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6"><h2 class="section-title mb-3 text-center">Entre em contato</h2></div>
@@ -713,27 +710,27 @@
                     <img class="img-fluid pb-3" src="./img/associacao.png" style="max-height: 150px;border-radius: 0;">
                 </div>
                 <div class="col-12 col-md-6">
-                  <ul class="list-unstyled footer-menu pt-2">
+                    <ul class="list-unstyled footer-menu pt-2">
                         <li>
-                            <a class="nav-link" href="/quem-somos">Quem somos</a>
+                            <a class="nav-link" href="/">Início</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="/transformacoes-positive">Transformações Positive</a>
+                            <a class="nav-link" href="#quem-somos">Quem somos</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="/agenda">Agenda</a>
+                            <a class="nav-link" href="#transformacoes-positive">Transformações Positive</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="/disciplina-positiva">Disciplina Positiva</a>
+                            <a class="nav-link" href="#agenda">Agenda</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="/depoimentos">Depoimentos</a>
+                            <a class="nav-link" href="#depoimentos">Depoimentos</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="/blog">Blog</a>
+                            <a class="nav-link" href="#blog">Blog</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="/contato">Contato</a>
+                            <a class="nav-link" href="#contato">Contato</a>
                         </li>
                     </ul>
                 </div>
@@ -919,6 +916,22 @@
         });
         $(document).ready(function(){
            	$('.slick-evento').slick({
+				arrows: false,
+				dots: true,
+				infinite: true,
+				autoplay: true,
+				autoplaySpeed: 3000,
+				cssEase: 'ease-in-out',
+				mobileFirst: false,
+				pauseOnHover: false,
+				pauseOnFocus: false,
+				responsive: [{
+					breakpoint: 767,
+					settings: "unslick"
+				}]
+            });
+        $(document).ready(function(){
+           	$('.slick-depo').slick({
 				arrows: false,
 				dots: true,
 				infinite: true,
