@@ -1,7 +1,8 @@
-const app = require('./app.js');
+const server = require('./server.js');
 
-const port = 3000;
+const host = process.env.HOST || 'positivetreinamentos.com.br';
+const port = process.env.PORT || 3000;
 
-app.listen(port, () => {
-    console.log(`It's running on http://positivetreinamentos.com.br:${port}`);
+server.listen(port, () => {
+    console.log(`[${ process.env.NODE_ENV.toUpperCase() }] Server is running on http://${host}:${port}/api`);
 });

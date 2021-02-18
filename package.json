@@ -1,48 +1,45 @@
 {
-  "name": "positivetreinamentos",
+  "name": "positivetreinamentos-com-br",
   "version": "1.0.0",
   "description": "Site para Positive Treinamentos",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm i",
-    "start": "node index",
-    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "server": "cross-env NODE_ENV=development nodemon index.js --ignore 'client/'",
+    "client": "cd client && npm run start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matheusaataide/positivetreinamentos.git"
+    "url": "git+https://github.com/matheusaataide/sitepositive.git"
   },
-  "keywords": [],
   "author": "Matheus Ataide <webdev@matheusataide.com.br>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/matheusaataide/positivetreinamentos/issues"
+    "url": "https://github.com/matheusaataide/sitepositive/issues"
   },
-  "homepage": "https://github.com/matheusaataide/positivetreinamentos#readme",
+  "homepage": "http://www.positivetreinamentos.com.br",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
-    "colors": "^1.4.0",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "helmet": "^3.23.3",
-    "http-status": "^1.4.2",
+    "helmet": "^4.3.1",
+    "http-status": "^1.5.0",
     "jsonwebtoken": "^8.5.1",
-    "jwt-simple": "^0.5.6",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
-    "mysql2": "^2.1.0",
-    "nodemailer": "^6.4.10",
-    "passport": "^0.4.1",
-    "passport-jwt": "^4.0.0",
-    "sequelize": "^6.3.3",
-    "sequelize-cli": "^6.2.0"
+    "mysql2": "^2.2.5",
+    "nodemailer": "^6.4.17",
+    "sequelize-v5": "^1.0.0",
+    "slugify": "^1.4.6"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4",
-    "sqlite3": "^5.0.0"
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.7"
   }
 }

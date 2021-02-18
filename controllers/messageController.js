@@ -25,7 +25,7 @@ const MessageController = database => ({
 
         const to = { 
             "name": "Positive Treinamentos",
-            "email": process.env.TO_EMAIL || 'contato@matheusataide.com.br'
+            "email": process.env.TO_EMAIL || 'positivetreinamentos@gmail.com'
         }
         try {
             email.send(

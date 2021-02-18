@@ -19,7 +19,7 @@
         "username": "adminpositive",
         "password": "P0s1t1v3",
         "dialect": "mysql",
-        "host": "http://mysql669.umbler.com",
+        "host": "mysql669.umbler.com",
         "port": 41890,
         "operatorAliases": false,
         "logging": false,
