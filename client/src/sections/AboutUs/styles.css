@@ -1,0 +1,13 @@
+.about-us > .container > .row > .col {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+@media (min-width: 992px) {
+    .about-us > .container > .row:nth-child(2) > .col {
+        flex: 0 0 41.666667%;
+        max-width: 41.666667%;
+    }
+    .about-us > .container > .row:nth-child(2) > .col:first-child {
+        margin-left: 8.3333334%;
+    }
+}

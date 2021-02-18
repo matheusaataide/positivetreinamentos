@@ -1,0 +1,29 @@
+.schedule > .container > .row {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+.schedule > .container > .row > .col {
+    display: inline-block;
+    float: none;
+}
+.schedule > .container > .row:nth-child(2) {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+@media (min-width: 992px) {
+    .schedule > .container > .row {
+        flex-wrap: wrap;
+        white-space: normal;
+    }
+    .schedule > .container > .row > .col {
+        display: inline-block;
+        float: right;
+    }
+    .schedule > .container > .row.has-1 {
+        text-align: center !important;
+    }
+    .schedule > .container > .row.has-2 > .col:nth-child(1){
+        text-align: right;
+    }
+}

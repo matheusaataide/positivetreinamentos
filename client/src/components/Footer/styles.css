@@ -1,0 +1,31 @@
+
+.footer-section img {
+    max-height: 150px;
+    border-radius: 0 !important;
+    padding-bottom: 1rem!important;
+    margin: 0 auto;
+}
+.footer-menu {
+    margin-bottom: 60px !important;
+}
+.footer-menu .nav-link {
+    color: #2ba2cc;
+}
+@media (min-width: 768px) {
+    .footer-menu {
+        margin-bottom: 0 !important;
+    }
+}
+
+.footer-menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+}
+.footer-menu li {
+    float: left;
+    padding: 0 1em;
+}

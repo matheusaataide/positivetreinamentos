@@ -1,0 +1,19 @@
+.who-we-are .img-hero {
+    display: block;
+    max-width: 100%;
+    margin-bottom: 2.5em;
+}
+
+@media (min-width: 992px) {
+    .who-we-are .about-us {
+        margin-bottom: 10em;
+    }
+
+    .who-we-are .img-hero {
+        max-width: 50%;
+        float: right;
+        margin-left: 3.2em;
+        margin-bottom: 1.5em;
+        margin-top: -9em;
+    }
+}

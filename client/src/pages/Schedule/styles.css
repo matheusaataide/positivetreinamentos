@@ -1,0 +1,82 @@
+.page.schedule .page-title {
+    margin-bottom: 1em;
+}
+.page.schedule .cartoon {
+    display: none;
+}
+@media (min-width: 992px) {
+    .page.schedule .page-section {
+        margin-top: 2em;
+    }
+    .page.schedule .cartoon {
+        display: block;
+        max-height: 110vh;
+    }
+}
+
+.page.course .page-subtitle {
+    font-weight: 700;
+    font-size: 1.2em;
+    letter-spacing: .05em;
+    
+    text-transform: uppercase;
+    text-align: center;
+    color: #2ba2cc;
+
+    margin-top: .25em;
+    margin-bottom: 1em;
+}
+.page.course .page-title {
+    margin-bottom: .75em;
+}
+.page.course .info {
+    padding-left: 0;
+    font-size: 1em;
+    margin-bottom: .75em;
+    text-align: center;
+}
+.page.course .info > li {
+    display: inline;
+    list-style: none;
+    padding: 0 1em;
+}
+.page.course .course-image {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.page.course .cta {
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+.page.course .cta .btn {
+    font-size: 1em !important;
+}
+@media (min-width: 992px) {
+    .page.course .page-title {
+        max-width: 15em;
+        margin-bottom: .5em;
+    }
+    .page.course .page-subtitle {
+        text-align: left;
+    }
+    .page.course .info {
+        margin-bottom: 3em;
+        padding-left: 1em;
+        text-align: left;
+    }
+    .page.course .info > li {
+        display: inline;
+        padding: 0;
+        margin-right: 3em;
+    }
+    .page.course .cta {
+        margin-bottom: 3em;
+    }
+    .page.course .course-image {
+        margin-top: -13em;
+        max-width: 50%;
+        float: right;
+        margin-left: 3.2em;
+        margin-bottom: 1.5em;
+    }
+}

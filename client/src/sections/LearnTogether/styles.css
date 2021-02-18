@@ -1,0 +1,13 @@
+.learn-together > .container > .row:nth-child(2) {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+.learn-together > .container > .row:nth-child(2) > .col {
+    display: inline-block;
+    float: none;
+}
+.learn-together > .container > .row:nth-child(2) {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}

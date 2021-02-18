@@ -1,0 +1,24 @@
+{
+    "images": [
+        "image/pjepg",
+        "image/jpeg",
+        "image/png",
+        "image/gif"
+    ],
+    "docs": [
+        "application/msword",
+        "application/pdf",
+        "application/x-rar-compressed",
+        "application/zip"
+    ],
+    "all": [
+        "image/pjepg",
+        "image/jpeg",
+        "image/png",
+        "image/gif",
+        "application/msword",
+        "application/pdf",
+        "application/x-rar-compressed",
+        "application/zip"
+    ]
+}

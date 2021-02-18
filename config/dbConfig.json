@@ -1,0 +1,32 @@
+{
+    "development": {
+        "database": "positive",
+        "username": "adminpositive",
+        "password": "P0s1t1v3",
+        "dialect": "mysql",
+        "host": "mysql669.umbler.com",
+        "port": 41890,
+        "operatorAliases": false,
+        "logging": false,
+        "define": {
+            "timestamps": true,
+            "underscored": true,
+            "underscoredAll": true
+        } 
+    },
+    "production": {
+        "database": "positive",
+        "username": "adminpositive",
+        "password": "P0s1t1v3",
+        "dialect": "mysql",
+        "host": "http://mysql669.umbler.com",
+        "port": 41890,
+        "operatorAliases": false,
+        "logging": false,
+        "define": {
+            "timestamps": true,
+            "underscored": true,
+            "underscoredAll": true
+        }
+    }
+}

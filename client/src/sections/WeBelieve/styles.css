@@ -1,0 +1,22 @@
+
+.we-believe img {
+    display: none;
+}
+.we-believe p {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
+@media (min-width: 992px){
+    .we-believe .section-title {
+        font-size: 1.5em !important;
+        text-align: left !important;
+    }
+    .we-believe .section-subtitle {
+        text-align: left !important;
+    }
+    .we-believe img {
+        display: inline;
+    }
+
+}

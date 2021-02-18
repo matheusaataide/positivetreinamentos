@@ -1,0 +1,24 @@
+
+.our-story .section-title {
+    margin-top: 0;
+    margin-bottom: 5em;
+}
+.our-story p {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+.our-story .cartoon {
+    display: none;
+}
+@media (min-width: 992px) {
+    .our-story .section-title {
+        margin-top: 2em;
+        margin-bottom: 2em !important;
+    }
+    .our-story .cartoon {
+        display: block;
+        max-height: 110vh;
+    }
+    
+}
+
