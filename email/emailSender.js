@@ -21,12 +21,12 @@ module.exports = {
         };
 
         try {
-            fetch('http://app1.iagentesmtp.com.br/api/v3/send', {
-                method: 'POST',
-                body: data
-            }).then(res => {
-                    console.log(res);
-                });
+            const result = await axios.post(
+                'http://app1.iagentesmtp.com.br/api/v3/send',
+                { data }
+            );
+            
+            console.log(result);
         } catch (err) {
             console.log(err.stack);
         }
