@@ -6,6 +6,9 @@ const cors = require('cors');
 
 const server = Express();
 
+const email = require('./email/emailSender');
+const newMsgTemplate = require('./email/newMessageTemplate');
+
 // middlewares
 server.use(
     helmet({ contentSecurityPolicy:  undefined }),
@@ -22,6 +25,29 @@ server.use(
 // Front end
 const baseDir = `${__dirname}/build/`
 server.use(Express.static(`${baseDir}`));
+
+server.post('/api/messages', (req, res) => {
+    const msg = req.body; 
+
+    console.table(msg);
+
+    const to = { 
+        "name": "Positive Treinamentos",
+        "email": 'matheusantonio96@gmail.com'
+    };
+
+    try {
+        email.send(
+                [to],
+                "Recebemos uma nova mensagem no site",
+                newMsgTemplate(msg.content)
+            );
+    } catch (err) {
+        console.table(err);    
+    }
+
+    return res.status(httpStatus.CREATED).json(msg);
+});
 
 server.get('/', (req, res) => res.sendFile('index.html', { root: baseDir }));
 server.get('*', (req, res) => {
