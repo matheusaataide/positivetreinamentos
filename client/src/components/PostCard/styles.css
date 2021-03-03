@@ -1,0 +1,94 @@
+
+.card.post-card {
+    width: 70vw;
+    margin-bottom: 5.625rem;
+    border: none;
+    background-color: transparent;
+}
+.card.post-card .card-body {
+    padding: 1rem 1.5rem 1.25rem 1.5rem;
+    border: solid .125rem #ddd;
+    border-top: none;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    background-color: #fff;
+    white-space: normal;
+
+    -webkit-box-shadow: 0 10px 5px -5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 5px -5px rgba(0, 0, 0, 0.05);
+}
+.card.post-card img {
+    border-radius: 1em 1em 0 0 !important;
+}
+.card.post-card .card-title {
+    margin-bottom: 1.5em;
+    font-size: 1.1em;
+    text-align: center;
+}
+.card.post-card .card-subtitle {
+    font-weight: bolder;
+    font-size: .85em;
+    letter-spacing: .05em;
+    
+    text-transform: uppercase;
+    text-align: left;
+    color: #4cd8b1 !important;
+
+    margin-top: .25em;
+    margin-bottom: 1.5em;
+}
+.card.post-card p {
+    font-size: .85em !important;
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.75em;
+    color: rgba(128, 128, 128, .75);
+    text-align: right;
+}
+.card.post-card .time {
+    text-align: end;
+}
+.card.post-card .button-container {
+    margin-top: -1.375rem;
+    text-align: center;
+}
+.card.post-card .btn {
+    text-transform: uppercase;
+    -webkit-box-shadow: 0 10px 5px -5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 5px -5px rgba(0, 0, 0, 0.05);
+}
+@media (min-width: 992px) {
+    .card.post-card {
+        max-width: 20.875rem;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .card.post-card .card-body {
+        height: 11em;
+        padding: 1.2rem 1.2rem 1.75rem 1.2rem;
+    }
+    .card.post-card .card-title {
+        margin-bottom: 1em;
+        text-align: left;
+        font-size: 1.25em;
+        line-height: 1.5em;
+    }
+    .card.post-card .card-subtitle {
+        font-weight: bolder;
+        font-size: .9em;
+        letter-spacing: 1px;
+
+        margin-top: .25em;
+        margin-bottom: .5em;
+    }
+    .card.post-card p {
+        font-size: .85em !important;
+    }
+    .card.post-card .button-container {
+        text-align: right;
+        padding-right: 1.25em;
+    }
+}
+
+i + time {
+    margin-left: .5em;
+}

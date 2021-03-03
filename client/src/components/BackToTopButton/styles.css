@@ -1,0 +1,22 @@
+a.back-to-top {
+    position: fixed;
+    z-index: 999;
+    right: 1.5em;
+    bottom: 1.5em;
+    opacity: 0;
+    width: 3em;
+    height: 3em;
+    border-radius: 1.5em;
+    
+    background: var(--color-primary) url(up-arrow.png) no-repeat center 47%;
+    background-size: 18px 18px;
+    text-indent: -9999px;
+
+    -webkit-box-shadow: 0 10px 5px -5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 5px -5px rgba(0, 0, 0, 0.05);
+
+    transition: all .5s;
+}
+a.back-to-top.visible {
+    opacity: 1;
+}

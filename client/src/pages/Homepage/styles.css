@@ -1,0 +1,214 @@
+
+.landing-page .schedule {
+    background-color: #f7f7f7;
+}
+@media (min-width: 992px) {
+    .landing-page .our-story {
+        margin-top: 0 !important;
+        padding-bottom: 7rem;
+        background: url('../../assets/img/story-background.jpg') center center no-repeat;
+        background-size: cover;
+    }
+}
+
+/* Configurando seçoes específicas */
+/* HEADER */
+.header {
+    background: none;
+    text-align: center;
+    padding-bottom: 5em;
+}
+.header .header-content {
+    padding-top: 8em;
+}
+.header h1 {
+    font-size: 2em;
+    font-family: "Nunito", sans-serif;
+    font-weight: bold; 
+    text-transform: uppercase;
+    line-height: 1.5em;
+    color: #fff;
+
+    margin-bottom: .5em;
+}
+.header h1 .turquoise {
+    color: #ff0;
+}
+.header p {
+    text-align: justify;
+    text-indent: 1.5em;
+    font-size: 1em !important;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    line-height: 1.75em;
+    color: #fff;
+    
+    margin-bottom: 1.5em;
+}
+@media (min-width: 992px) {
+    .header {
+        padding-bottom: 15em;
+        height: 100vh;
+        
+        text-align: left;
+    }
+    .header h1 {
+        font-size: 3em !important;
+        font-weight: 700;
+        line-height: 1.4em;
+        text-transform: none;
+        color: #333;
+        margin-bottom: .5em;
+    }
+    .header h1 .turquoise {
+        color: #2ba2cc;
+    }
+    .header p {
+        padding-right: 3em;
+        text-align: justify;
+        text-indent: 1.5em;
+        color: rgb(128, 128,128);
+    }
+    .header img {
+        border-radius: 10px;
+        -webkit-box-shadow: 0 10px 5px -5px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 5px -5px rgba(0, 0, 0, 0.05);
+    }
+}
+
+/* WE BELIEVE */
+.we-believe img {
+    display: none;
+}
+.we-believe p {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+@media (min-width: 992px){
+    .we-believe .section-title {
+        font-size: 1.5em !important;
+        text-align: left !important;
+    }
+    .we-believe .section-subtitle {
+        text-align: left !important;
+    }
+    .we-believe img {
+        display: inline;
+    }
+
+}
+
+/* SCHEDULE */
+.schedule {
+    background-color: #f7f7f7;
+}
+.schedule > .container > .row {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+.schedule > .container > .row > .col {
+    display: inline-block;
+    float: none;
+}
+.schedule > .container > .row:nth-child(2) {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+@media (min-width: 992px) {
+    .schedule > .container > .row {
+        flex-wrap: wrap;
+        white-space: normal;
+    }
+    .schedule > .container > .row > .col {
+        display: inline-block;
+        float: right;
+    }
+    .schedule > .container > .row.has-1 {
+        text-align: center !important;
+    }
+    .schedule > .container > .row.has-2 > .col:nth-child(1){
+        text-align: right;
+    }
+}
+
+/* OUR STORY */
+.our-story .section-title {
+    margin-top: 0;
+    margin-bottom: 5em;
+}
+.our-story p {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+.our-story .cartoon {
+    display: none;
+}
+@media (min-width: 992px) {
+    .homepage .our-story {
+        margin-top: 0!important;
+        padding-bottom: 7rem;
+        background: url('../../assets/img/story-background.jpg') 50% no-repeat;
+        background-size: cover;
+    }
+    .our-story .section-title {
+        margin-top: 2em;
+        margin-bottom: 2em !important;
+    }
+    .our-story .cartoon {
+        display: block;
+        max-height: 110vh;
+    }
+    
+}
+
+/* ABOUT US */
+.about-us > .container > .row > .col {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+@media (min-width: 992px) {
+    .about-us > .container > .row:nth-child(2) > .col {
+        flex: 0 0 41.666667%;
+        max-width: 41.666667%;
+    }
+    .about-us > .container > .row:nth-child(2) > .col:first-child {
+        margin-left: 8.3333334%;
+    }
+}
+
+/* CONTACT US */
+.contact-us .section-wrapper {
+    padding: 3em 1em;
+}
+.contact-us h2,
+.contact-us p {
+    margin-bottom: 1.5em !important;
+}
+.contact-us .form-control-input,
+.contact-us .form-control-textarea,
+.contact-us .form-group {
+    text-align: center;
+}
+.contact-us .label-control {
+    padding-left: 0;
+}
+
+.contact-us .list-unstyled {
+    margin-bottom: 1.875em;
+}
+.contact-us .cartoon {
+    display: none;
+}
+@media (min-width: 992px) {
+    .contact-us .section-wrapper {
+        padding: 5em 2em;
+    }
+    .contact-us form {
+        margin-left: 2.75em;
+    }
+    .contact-us .cartoon {
+        display: block;
+        max-height: 110vh;
+    }
+}

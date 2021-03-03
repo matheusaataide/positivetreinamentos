@@ -1,0 +1,240 @@
+:root {
+    --color-primary: #2ba2cc;
+    --bg-secondary: #f4f5f7;
+}
+* {
+    margin: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: white;
+    font-family: 'Nunito', 'Calibri', sans-serif;
+    font-size: 1em;
+    color: rgb(128, 128,128);
+
+    scroll-behavior: smooth;
+}
+img {
+    border-radius: 1em !important;
+}
+p {
+    line-height: 1.75em;
+    text-indent: 1.5em;
+    margin-bottom: 1.5em;
+}
+.bg-primary {
+    background-color: var(--bg-secondary) !important;
+}
+.btn {
+    display: inline-block;
+    padding: 1.1875rem 1.875rem 1.1875rem 1.875rem;
+    border: .125rem solid #14bf98;
+    border-radius: 50vh;
+    background-color: #14bf98;
+    color: #fff;
+    font: 700 0.75rem/0 "Nunito", sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 0 10px 5px -5px rgba(43, 162, 204, 0.2);
+    transition: all .2s;
+}
+.btn.btn-primary {
+    background: linear-gradient(147deg, #01bfd9 0%, #2ba2cc 74%);
+    border-color: transparent;
+    transition: all .2s;
+}
+.btn.btn-primary,
+.btn.btn-primary > * {
+    color: #fff !important;
+}
+.btn.btn-primary:hover {
+    background: linear-gradient(147deg, #01bfd9 26%, #2ba2cc 100%);
+    color: white;
+    text-decoration: none;
+}
+.btn.btn-link {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+.btn.btn.btn-link,
+.btn.btn-link > * {
+    color: var(--color-primary) !important;
+}
+.btn.btn.btn-link:hover,
+.btn.btn-link:hover > * {
+    color: var(--color-primary);
+}
+
+/* Formulários */
+.form-group {
+    position: relative;
+    margin-bottom: 1.25em;
+}
+.form-control-input,
+.form-control-select {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 1.25rem + 2px);
+    padding: .625rem .75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #8898aa;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #cad1d7;
+    border-radius: .25rem;
+    box-shadow: none;
+    transition: all .2s cubic-bezier(.68,-.55,.265,1.55);
+}
+
+.form-control-textarea {
+    display: block;
+    width: 100%;
+    height: 14rem;
+    padding-top: 0.5em;
+    padding-left: 1.375em;
+    border: 1px solid #cbcbd1;
+    border-radius: .5em;
+    background-color: #ffffff;
+    color: #6b747b;
+    font: 400 0.875rem/1.875rem "Nunito", sans-serif;
+    transition: all 0.2s;
+}
+.form-control-input::placeholder,
+.form-control-select::placeholder,
+.form-control-textarea::placeholder {
+    color: #c7c7c7;
+}
+.form-control-input:focus,
+.form-control-select:focus,
+.form-control-textarea:focus {
+    border: solid 2px #2ba2cc;
+    outline: 0; 
+    box-shadow: 0;
+}
+.label-control {
+    padding-left: 1.375em;
+    margin-bottom: 0;
+    color: #2ba2cc;
+    opacity: 1;
+    font: 700 0.875rem/1.375rem "Nunito", sans-serif;
+    text-transform: uppercase;
+    cursor: text;
+    transition: all 0.2s ease;
+}
+/*
+.form-control-input:focus + .label-control,
+.form-control-input.notEmpty + .label-control,
+.form-control-textarea:focus + .label-control,
+.form-control-textarea.notEmpty + .label-control {
+    top: 0.25rem;
+    color: #333;
+    opacity: 1;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+.form-control-input:focus + .label-control,
+.form-control-textarea:focus + .label-control {
+    color: #2ba2cc;
+}
+*/
+
+
+i + p, 
+i + span,
+i + i {
+    margin-left: .25em;
+}
+
+/**** PÁGINAS ****/
+.page > .container {
+    padding-top: 7em;
+    min-height: 100vh;
+}
+.page .page-title,
+.page .section-title {
+    display: block;
+    margin-top: .5em;
+    margin-bottom: 2em;
+    padding: 0 .5em;
+    width: 100%;
+
+    font-size: 2em;
+    font-weight: bolder;
+    letter-spacing: -.05em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #333;
+}
+.page .page-section {
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+.page .page-content {
+    text-align: justify;
+}
+@media (min-width: 992px) {
+    .page {
+        position: absolute;
+        top: 0;
+
+        width: 100vw;
+        padding-top: 6em;
+
+        background: url("./assets/img/header-background.jpg") center 0 no-repeat;
+        background-size: contain;
+    }
+    .page .page-title,
+    .page .section-title {
+        letter-spacing: normal;
+    }
+    .page .page-title {
+        margin-bottom: 3em;
+        text-align: left;
+    }
+    .page .page-section {
+        margin-top: 5em; 
+    }
+    .page .section-title {
+        text-align: center;
+    }
+    
+}
+
+
+.card .card-title {
+    font-size: 1.25em;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bolder;
+    text-align: center;
+
+    margin-bottom: .75em;
+}
+
+.page-section {
+    padding-top: 5em;
+    padding-bottom: 1em;
+}
+.page-section .section-subtitle,
+.card .card-subtitle {
+    font-family: 'Muli', sans-serif;
+    font-weight: bolder;
+    color: #4cd8b1;
+    text-transform: uppercase;
+    text-align: center;
+}
+@media (min-width: 992px) {
+    .page-section .section-title {
+        font-size: 2em;
+        
+        letter-spacing: 1px;
+        margin-top: .5em;
+        margin-bottom: 2em;
+    }
+}
+
+.breadcrumb {
+    background: none;
+}

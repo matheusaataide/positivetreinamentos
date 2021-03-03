@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7a46740f.chunk.css",
+    "main.js": "/static/js/main.5fd0ae25.chunk.js",
+    "main.js.map": "/static/js/main.5fd0ae25.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.745307f8.js",
+    "runtime-main.js.map": "/static/js/runtime-main.745307f8.js.map",
+    "static/css/2.0626e71e.chunk.css": "/static/css/2.0626e71e.chunk.css",
+    "static/js/2.e81a80da.chunk.js": "/static/js/2.e81a80da.chunk.js",
+    "static/js/2.e81a80da.chunk.js.map": "/static/js/2.e81a80da.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.0626e71e.chunk.css.map": "/static/css/2.0626e71e.chunk.css.map",
+    "static/css/main.7a46740f.chunk.css.map": "/static/css/main.7a46740f.chunk.css.map",
+    "static/js/2.e81a80da.chunk.js.LICENSE.txt": "/static/js/2.e81a80da.chunk.js.LICENSE.txt",
+    "static/media/associacao.5a5686d6.png": "/static/media/associacao.5a5686d6.png",
+    "static/media/all.css": "/static/media/fa-solid-900.f4f93856.woff",
+    "static/media/father.f568ba1e.png": "/static/media/father.f568ba1e.png",
+    "static/media/global.css": "/static/media/header-background.57976c20.jpg",
+    "static/media/logo.1c462916.png": "/static/media/logo.1c462916.png",
+    "static/media/para-pais.4dda6eaf.png": "/static/media/para-pais.4dda6eaf.png",
+    "static/media/patricia.8f7f8cf6.png": "/static/media/patricia.8f7f8cf6.png",
+    "static/media/styles.css": "/static/media/story-background.445b2f0d.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.745307f8.js",
+    "static/css/2.0626e71e.chunk.css",
+    "static/js/2.e81a80da.chunk.js",
+    "static/css/main.7a46740f.chunk.css",
+    "static/js/main.5fd0ae25.chunk.js"
+  ]
+}
