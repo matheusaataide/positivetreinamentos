@@ -68,7 +68,7 @@ router.post('/messages', function (req, res) {
     "email": 'webdev@matheusataide.com.br'
   }];
 
-  _emailSender["default"].send([to], "Recebemos uma nova mensagem no site", (0, _newMessageTemplate["default"])(name, email, whatsapp, content));
+  _emailSender["default"].send(to, "Recebemos uma nova mensagem no site", (0, _newMessageTemplate["default"])(name, email, whatsapp, content));
 
   res.json({
     status: true,
