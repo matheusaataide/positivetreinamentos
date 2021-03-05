@@ -45,8 +45,7 @@ const Footer = () => (
             <Row>
                 <Col>
                     <div className="pt-5 w-100 text-center">
-                        <p>Copyright © Positive Treinamentos 2020. Todos os direitos reservados. 
-                            Desenvolvido por Matheus Ataide.</p>
+                        <p>Copyright © Positive Treinamentos 2021. Todos os direitos reservados.</p>
                     </div>
                 </Col>
             </Row>
