@@ -1,1 +1,1 @@
-module.exports = 'https://www.positivetreinamentos.com';
+module.exports = 'https://www.positivetreinamentos.com.br';
